@@ -16,10 +16,6 @@ var contador = {
     checkout: 0,
 };
 
-var contexto = {
-    layout: false,
-};
-
 function archivoEscrito() {
     console.log('el archivo se creo');
 
@@ -37,25 +33,49 @@ function archivoEscrito() {
 app.get('/', function (req, response) {
     contador.home++;
     archivoEscrito();
-
+    var contexto = {
+        layout: false,
+        tienda: contador.tienda,
+        home: contador.home,
+        checkout: contador.checkout
+    };
+    
     response.render('home', contexto);
 });
 
 app.get('/tienda', function (req, response) {
     contador.tienda++;
     archivoEscrito();
-
+    var contexto = {
+        layout: false,
+        tienda: contador.tienda,
+        home: contador.home,
+        checkout: contador.checkout
+    };
+    
     response.render('tienda', contexto);
 });
 
 app.get('/checkout', function (req, response) {
     contador.checkout++;
     archivoEscrito();
-
+    var contexto = {
+        layout: false,
+        tienda: contador.tienda,
+        home: contador.home,
+        checkout: contador.checkout
+    };
+    
     response.render('checkout', contexto);
 });
 
 app.get('/admin', function (req, response) {
+    var contexto = {
+        layout: false,
+        tienda: contador.tienda,
+        home: contador.home,
+        checkout: contador.checkout
+    };
     
     response.render('admin', contexto);
 });
