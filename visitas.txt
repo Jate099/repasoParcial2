@@ -1,0 +1,3 @@
+visitas_home: 2
+visitas_tienda: 2
+visitas_checkout: 2
