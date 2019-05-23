@@ -28,27 +28,27 @@ var contador = {
     campeon: 0,
 };
 
-function archivoEscrito(texto , numeroPag) {
-    var antiguo='';
-    var visita=0;
-    if(numeroPag == 0){
+function archivoEscrito(texto, numeroPag) {
+    var antiguo = '';
+    var visita = 0;
+    if (numeroPag == 0) {
         visita = contador.home;
-    } else if(numeroPag == 1){
+    } else if (numeroPag == 1) {
         visita = contador.splash;
-    }else if(numeroPag == 2){
+    } else if (numeroPag == 2) {
         visita = contador.campeon;
     }
-     //leer archivo
+    //leer archivo
     fs.readFile('visitas.txt', 'utf8', function (err, data) {
         if (err) throw err;
-        console.log('Data:' +data);
+        console.log('Data:' + data);
         antiguo = data.toString();
-        console.log('antiguo: '+antiguo);
+        console.log('antiguo: ' + antiguo);
 
-         //escritura del archivo
-    fs.writeFileSync('visitas.txt', antiguo+'\n'+texto+visita+' - Fecha/hora: ' + fecha +'', 'utf8'); 
+        //escritura del archivo
+        fs.writeFileSync('visitas.txt', antiguo + '\n' + texto + visita + ' - Fecha/hora: ' + fecha + '', 'utf8');
     });
-   
+
 }
 
 //entrada a pagina home
@@ -62,7 +62,7 @@ app.get('/', function (req, response) {
         home: contador.home,
         campeon: contador.campeon
     };
-    
+
     response.render('home', contexto);
 });
 //entrada a pagina Splash arts
@@ -76,7 +76,7 @@ app.get('/splash', function (req, response) {
         home: contador.home,
         campeon: contador.campeon
     };
-    
+
     response.render('splash', contexto);
 });
 
@@ -102,7 +102,7 @@ app.get('/admin', function (req, response) {
         home: contador.home,
         campeon: contador.campeon
     };
-    
+
     response.render('admin', contexto);
 });
 
