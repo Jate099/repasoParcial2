@@ -8,6 +8,8 @@ app.use(express.static('public'));
 app.set('view engine', 'handlebars');
 app.engine('handlebars', renderEngine());
 
+var fecha = new Date();
+
 var contador = {
     home: 0,
     tienda: 0,
@@ -23,7 +25,7 @@ function archivoEscrito() {
 
     //esribir el archivo
     //fs.writeFile('message.txt', 'visitas_home: ' + contador.home, 'utf8', archivoEscrito);
-    fs.writeFileSync('visitas.txt', 'visitas_home: ' + contador.home + '\nvisitas_tienda: ' + contador.tienda + '\nvisitas_checkout: ' + contador.checkout + '', 'utf8');
+    fs.writeFileSync('visitas.txt', 'visitas_home: ' + contador.home + ',' + ' fecha/hora: ' + fecha + '\nvisitas_tienda: ' + contador.tienda + ',' + ' fecha/hora: ' + fecha + '\nvisitas_checkout: ' + contador.checkout + ',' + ' fecha/hora: ' + fecha +'', 'utf8');
 
     //leer archivo
     fs.readFile('visitas.txt', 'utf8', function (err, data) {
