@@ -1,3 +1,15 @@
+
+/*
+=========================================================================================================
+
+    Programación Web:   2019-2
+
+    Realizado por:      Javier Trochez
+                        Nathan Manuel
+
+=========================================================================================================
+*/
+
 var express = require('express');
 var renderEngine = require('express-handlebars');
 var app = express();
@@ -79,7 +91,6 @@ app.get('/campeon', function (req, response) {
         home: contador.home,
         campeon: contador.campeon
     };
-    
     response.render('campeon', contexto);
 });
 
