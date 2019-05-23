@@ -16,12 +16,10 @@ var contador = {
     campeon: 0,
 };
 
-
-
-
 function archivoEscrito() {
 
-    fs.writeFileSync('visitas.txt', 'Visitas del home: ' + contador.home+'\nVisitas de Historia del Campeon: ' + contador.campeon+'\nVisitas de los Splash art: ' + contador.splash+',' + ' Fecha/hora: ' + fecha +'', 'utf8');
+    //escritura del archivo
+    fs.writeFileSync('visitas.txt', 'Visitas del home: ' + contador.home+'\nVisitas de Historia del Campeon: ' + contador.campeon+'\nVisitas de los Splash art: ' + contador.splash+',' + '\nFecha/hora de la ultima visita: ' + fecha +'', 'utf8');
 
     //leer archivo
     fs.readFile('visitas.txt', 'utf8', function (err, data) {
@@ -30,6 +28,7 @@ function archivoEscrito() {
     });
 }
 
+//entrada a pagina home
 app.get('/', function (req, response) {
     contador.home++;
     archivoEscrito();
@@ -42,7 +41,7 @@ app.get('/', function (req, response) {
     
     response.render('home', contexto);
 });
-
+//entrada a pagina Splash arts
 app.get('/splash', function (req, response) {
     contador.splash++;
     archivoEscrito();
@@ -56,6 +55,7 @@ app.get('/splash', function (req, response) {
     response.render('splash', contexto);
 });
 
+//entrada a pagina Campeon
 app.get('/campeon', function (req, response) {
     contador.campeon++;
     archivoEscrito();
@@ -69,6 +69,7 @@ app.get('/campeon', function (req, response) {
     response.render('campeon', contexto);
 });
 
+//entrada a pagina Admin
 app.get('/admin', function (req, response) {
     var contexto = {
         layout: false,
