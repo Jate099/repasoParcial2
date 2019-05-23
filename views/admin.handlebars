@@ -11,24 +11,36 @@
 
 <body>
 
-    <table>
-        <tr>
-            <th>Pagina</th>
-            <th>Visitas</th>
-        </tr>
-        <tr>
-            <td>Home</td>
-            <td>{{home}}</td>
-        </tr>
-        <tr>
-            <td>Splash Arts</td>
-            <td>{{slash}}</td>
-        </tr>
-        <tr>
-            <td>Campeon</td>
-            <td>{{campeon}}</td>
-        </tr>
-    </table>
+             <div class="contenedor">
+                <h1 class="contenedor__titulo contenedor__admin">Admin</h1> 
+                <div class="contenedor__enlaces">
+                        <a class="contenedor__link"  href="/">Home</a>
+                        <a class="contenedor__link"  href="/campeon">Historia del Campeon</a>
+                        <a class="contenedor__link"  href="/splash">Splash Arts</a>
+                </div>   
+
+                <table class="contenedor__tabla">
+                    <tr class="contenedor__fila1">
+                        <th>Pagina</th>
+                        <th>Visitas</th>
+                    </tr>
+                    <tr class="contenedor__fila">
+                        <td>Home</td>
+                        <td>{{home}}</td>
+                    </tr>
+                    <tr class="contenedor__fila">
+                        <td>Splash Arts</td>
+                        <td>{{splash}}</td>
+                    </tr>
+                    <tr class="contenedor__fila">
+                        <td>Campeon</td>
+                        <td>{{campeon}}</td>
+                    </tr>
+                </table>
+
+             <div class="contenedor__imagen" style="background-image: url('https://lolstatic-a.akamaihd.net/frontpage/apps/prod/rg-irelia-reveal/en_US/207888cd45bc4f531b87ffffeb768df0a7a11421/assets/img/content/wallpaper/nightblade-splash.jpg');"></div>     
+            
+        </div>
 
 </body>
 

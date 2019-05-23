@@ -16,11 +16,11 @@ var contador = {
     campeon: 0,
 };
 
-function archivoEscrito() {
-    console.log('el archivo se creo');
 
-    //esribir el archivo
-    //fs.writeFile('message.txt', 'visitas_home: ' + contador.home, 'utf8', archivoEscrito);
+
+
+function archivoEscrito() {
+
     fs.writeFileSync('visitas.txt', 'Visitas del home: ' + contador.home+'\nVisitas de Historia del Campeon: ' + contador.campeon+'\nVisitas de los Splash art: ' + contador.splash+',' + ' Fecha/hora: ' + fecha +'', 'utf8');
 
     //leer archivo
