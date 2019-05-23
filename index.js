@@ -12,8 +12,8 @@ var fecha = new Date();
 
 var contador = {
     home: 0,
-    tienda: 0,
-    checkout: 0,
+    splash: 0,
+    campeon: 0,
 };
 
 function archivoEscrito() {
@@ -21,7 +21,7 @@ function archivoEscrito() {
 
     //esribir el archivo
     //fs.writeFile('message.txt', 'visitas_home: ' + contador.home, 'utf8', archivoEscrito);
-    fs.writeFileSync('visitas.txt', 'visitas_home: ' + contador.home + ',' + ' fecha/hora: ' + fecha + '\nvisitas_tienda: ' + contador.tienda + ',' + ' fecha/hora: ' + fecha + '\nvisitas_checkout: ' + contador.checkout + ',' + ' fecha/hora: ' + fecha +'', 'utf8');
+    fs.writeFileSync('visitas.txt', 'Visitas del home: ' + contador.home+'\nVisitas de Historia del Campeon: ' + contador.campeon+'\nVisitas de los Splash art: ' + contador.splash+',' + ' Fecha/hora: ' + fecha +'', 'utf8');
 
     //leer archivo
     fs.readFile('visitas.txt', 'utf8', function (err, data) {
@@ -35,46 +35,46 @@ app.get('/', function (req, response) {
     archivoEscrito();
     var contexto = {
         layout: false,
-        tienda: contador.tienda,
+        splash: contador.splash,
         home: contador.home,
-        checkout: contador.checkout
+        campeon: contador.campeon
     };
     
     response.render('home', contexto);
 });
 
-app.get('/tienda', function (req, response) {
-    contador.tienda++;
+app.get('/splash', function (req, response) {
+    contador.splash++;
     archivoEscrito();
     var contexto = {
         layout: false,
-        tienda: contador.tienda,
+        splash: contador.splash,
         home: contador.home,
-        checkout: contador.checkout
+        campeon: contador.campeon
     };
     
-    response.render('tienda', contexto);
+    response.render('splash', contexto);
 });
 
-app.get('/checkout', function (req, response) {
-    contador.checkout++;
+app.get('/campeon', function (req, response) {
+    contador.campeon++;
     archivoEscrito();
     var contexto = {
         layout: false,
-        tienda: contador.tienda,
+        splash: contador.splash,
         home: contador.home,
-        checkout: contador.checkout
+        campeon: contador.campeon
     };
     
-    response.render('checkout', contexto);
+    response.render('campeon', contexto);
 });
 
 app.get('/admin', function (req, response) {
     var contexto = {
         layout: false,
-        tienda: contador.tienda,
+        splash: contador.splash,
         home: contador.home,
-        checkout: contador.checkout
+        campeon: contador.campeon
     };
     
     response.render('admin', contexto);
