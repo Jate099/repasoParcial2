@@ -55,6 +55,11 @@ app.get('/checkout', function (req, response) {
     response.render('checkout', contexto);
 });
 
+app.get('/admin', function (req, response) {
+    
+    response.render('admin');
+});
+
 app.listen(3000, function () {
     console.log('Aplicación ejemplo, escuchando el puerto 3000!');
 });
