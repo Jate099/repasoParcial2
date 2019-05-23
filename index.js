@@ -57,7 +57,7 @@ app.get('/checkout', function (req, response) {
 
 app.get('/admin', function (req, response) {
     
-    response.render('admin');
+    response.render('admin', contexto);
 });
 
 app.listen(3000, function () {
